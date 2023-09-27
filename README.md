@@ -11,7 +11,6 @@ Here is a quick example:
     
     init()
     
-    # begin_vertical()
     label('Compute a sum')
     begin_horizontal()
     s = slider(0,10)
@@ -19,7 +18,6 @@ Here is a quick example:
     end_horizontal()
     b = button("Compute sum")
     l = label('0')
-    # end_vertical()
     
     def btn_action():
       n1 = get_number(s)

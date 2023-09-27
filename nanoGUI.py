@@ -2,6 +2,7 @@
 # This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 # You should have received a copy of the GNU General Public License along with this program. If not, see <https://www.gnu.org/licenses/>. 
 
+
 from tkinter import *
 from tkinter.ttk import *
 
@@ -23,7 +24,7 @@ class Interactor:
 def init():
     global window, mainframe, current_container
     window = Tk()
-    window.title("Simple GUI")
+    window.title("nanoGUI")
     window.minsize(300,100)
 
     mainframe = Frame(window, padding="6 6 6 6")
@@ -167,22 +168,20 @@ def set_command(interactor, command):
     interactor.widget.config(command=command)
 
 
-### Conteneurs
+### Containers
 
 
 def begin_horizontal():
+    global current_container
     frame = Frame(current_container.widget, padding="6 6 6 6")
-    current_container.parent = current_container
-    current_container.widget = frame
-    current_container.side = LEFT
+    current_container = Container(frame, current_container, LEFT)
     return current_container
 
 
 def begin_vertical():
+    global current_container
     frame = Frame(current_container.widget, padding="6 6 6 6")
-    current_container.parent = current_container
-    current_container.widget = frame
-    current_container.side = TOP
+    current_container = Container(frame, current_container, TOP)
     return current_container
 
 

@@ -200,19 +200,3 @@ def end_vertical():
         side=current_container.parent.side
     )
     current_container = current_container.parent
-
-
-# ## Évènements
-
-
-init()
-e1=entry('n1')
-set_text(e1,'5')
-e2=slider(0,10,'n2')
-b=button('somme')
-l=label('g')
-def calc_somme():
-    set_text(l,get_number(e1)+get_number(e2))
-set_command(b,calc_somme)
-start()
-

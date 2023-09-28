@@ -70,12 +70,13 @@ def button(name, command=lambda:0, *args):
 def slider(from_, to, name=""):
     """Adds a slider to the window."""
     
-    svar = StringVar(value=str(from_))
+    
+    frame = Labelframe(current_container.widget, text=name)
+    
+    svar = StringVar(master=frame, value=str(from_), name="svar")
     
     def __update_svar(val):
         svar.set(f'{float(val):.1f}')
-    
-    frame = Labelframe(current_container.widget, text=name)
     
     interactor = Scale(
         frame, 
@@ -98,6 +99,9 @@ def slider(from_, to, name=""):
     frame.pack(side=current_container.side)
     return Interactor(interactor, current_container, frame)
 
+
+def delete(interactor):
+    interactor.wrapper.destroy()
 
 ### Interactor access
 
@@ -165,10 +169,17 @@ def set_number(interactor, x):
 
 
 def set_command(interactor, command):
-    interactor.widget.config(command=command)
+    w = interactor.widget
+    if type(w)==Scale:
+        def cmd(val):
+            interactor.wrapper.setvar(name="svar", value = f'{float(val):.1f}')
+            command(val)
+    else:
+        cmd = command
+    w.config(command=cmd)
 
 
-### Containers
+### Conteneurs
 
 
 def begin_horizontal():

@@ -16,7 +16,7 @@ Here is a quick example:
     s = slider(0,10)
     e = entry()
     end_horizontal()
-    b = button("Compute sum")
+    b = button('Compute sum')
     l = label('0')
     
     def btn_action():

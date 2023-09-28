@@ -4,7 +4,7 @@
 
 nanoGUI is a simple imperative wrapper for TKinter core widgets published under the GNU General Public License.
 Its goal is to provide teachers a tool to teach GUI principles to beginners.
-To use nanoGUI in a Python script, download `nanoGUI.py` into your work folder and add `import nanoGUI` to your script.
+To use nanoGUI in a Python script, download `nanoGUI.py` into your work folder and import the library into your script.
 Here is a quick example:
 
     from nanoGUI import *

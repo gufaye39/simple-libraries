@@ -7,22 +7,22 @@ Its goal is to provide teachers a tool to teach GUI principles to beginners.
 To use nanoGUI in a Python script, download `nanoGUI.py` into your work folder and import the library into your script.
 Here is a quick example:
 
-    from nanoGUI import *
+    import nanoGUI as ng
     
-    init()
+    ng.init()
     
-    label('Compute a sum')
-    begin_horizontal()
-    s = slider(0,10)
-    e = entry()
-    end_horizontal()
-    b = button('Compute sum')
-    l = label('0')
+    ng.label('Compute a sum')
+    ng.begin_horizontal()
+    s = ng.slider(0,10)
+    e = ng.entry()
+    ng.end_horizontal()
+    b = ng.button('Compute sum')
+    l = ng.label('0')
     
     def btn_action():
-      n1 = get_number(s)
-      n2 = get_number(e)
-      set_text(l, n1 + n2)
+      n1 = ng.get_number(s)
+      n2 = ng.get_number(e)
+      ng.set_text(l, n1 + n2)
     
-    set_command(b,btn_action)
-    start()
+    ng.set_command(b,btn_action)
+    ng.start()
